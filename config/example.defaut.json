@@ -1,6 +1,0 @@
-{
-  "dbName": "dbName",
-  "mongoUri": "mongodb://000.000.000.000:27017",
-  "pass": "pass",
-  "user": "user"
-}

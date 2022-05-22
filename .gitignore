@@ -1,5 +1,3 @@
-config/default.json
-
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -27,20 +25,13 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# next.js
-**/.next
 
 # ide
 **/.idea
 
-# server configs
-config/default.json
-config/production.json
-
-# screenshots
-screenshots/*.jpg
-logs/
+# data
+data/
 
 tsconfig.tsbuildinfo
 
-**/.session
+.husky/
