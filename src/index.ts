@@ -8,8 +8,8 @@ interface IResponseChannel {
   channel_id: number
   channel_key: string
   track: {
-    display_artist: string
-    display_title: string
+    display_artist?: string
+    display_title?: string
     duration: number
     id: number
     start_time: string
@@ -17,9 +17,10 @@ interface IResponseChannel {
 }
 
 interface ITrack {
-  artist: string
+  added: string
+  artist?: string
   id: number
-  title: string
+  title?: string
 }
 
 interface IChannel {
@@ -42,6 +43,11 @@ const loadCurrentlyPlaying = async (): Promise<void> => {
 
     currentlyPlaying.forEach((channel: IResponseChannel) => {
       const { channel_key: channelKey, track } = channel
+
+      if (!track) {
+        return
+      }
+
       const { display_artist: artist, display_title: title, id } = track
 
       if (!music[channelKey]) {
@@ -50,6 +56,7 @@ const loadCurrentlyPlaying = async (): Promise<void> => {
 
       if (!music[channelKey][id]) {
         music[channelKey][id] = {
+          added: Date.now(),
           artist,
           id,
           title
